@@ -1,0 +1,72 @@
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    height: 65vh;
+    background-color: red;
+
+}
+
+.thanos{
+   
+    width: 50%;
+    text-align: center;
+
+}
+
+.thanos img{
+    width: 50%;
+    margin-top: 10% ;
+}
+
+.thanos p{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.heroes{
+    width: 50%;
+    text-align: center;
+    
+}
+
+.heroes img{
+    width: 40%;
+    padding: 30px;
+    margin-top: 10%;
+}
+
+.name{
+    display: flex;
+    font-size: 30px;
+    font-weight: 600;
+    justify-content: space-around;
+
+}
+
+.container2 {
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    background-color: yellow;
+    width: 100%;
+}
+
+.avatar{
+    
+    width: 25%;
+}
+
+.text{
+    width: 75%;
+}
+
+.que{
+    background-color: aquamarine;
+    height: 60%;
+}
+.ans{
+    background-color: brown;
+    height: 40%;
+}
