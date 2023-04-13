@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../CSS/login.css">
+</head>
+<body>
+    <section class="container" id="loginpage">
+        <div class="login">
+            <h1 style="margin-bottom: 5px; font-size: 30px;">Welcome Back</h1>
+            <p style="color: rgb(95, 104, 104);margin-top: 2px; margin-bottom: 20px; font-size: 14px;">Please Enter Your Details</p>
+
+            <form id="form" action="#">
+            <label for="email" style="margin-bottom: 2px;">Email <b style="color: red;">*</b></label><br>
+            <input class="input" type="text" id="email1" name="email" placeholder="Enter Your Email" onkeydown="validation()" >
+            <br><br>
+            <span id="text"></span>
+        </form>
+
+
+            <label for=" pwd" style="margin-bottom: 20px;">Password <b style="color: red;">*</b></label><br>
+            <input class="input" type="password" id="pwd1" name="password" placeholder="Enter Password"><br><br>
+
+            <div class="f_pwd">
+                <div class="forget_pwd"><a href="#"><b>Forgot Password</b></a></div>
+            </div>
+
+            <br>
+            <button class="btn" type="submit" id="login" style="background: rgb(28, 26, 26); color: aliceblue; ">Sign
+                in</button>
+
+            <br>
+
+            <button class="btn" style="background-color: white; " id="loginbtn"> <img
+                    style="width: 20px; height: 20px; margin-right: 5px;" src="../Images/Google__G__Logo.svg.png"
+                    alt="google_logo"> <span>Sign in with Google</span></button>
+
+            <p style="font-size: small; text-align: center; color: rgb(95, 104, 104); margin-top: 20px;">Don't have an
+                account? <a href="../HTML/signup.html"><b>Sign up</b></a></p>
+        </div>
+
+        <img id="bgimg" src="../Images/login.jpg" alt="bg_img">
+    </section>
+</body>
+<script>
+    function validation(){
+        var form =document.getElementById("form")
+        var mail =document.getElementById("email1").value;
+        var text =document.getElementById("text");
+ 
+        var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+       if(mail.match(pattern)){
+           form.classList.add("valid");
+            form.classList.remove("invalid");
+            text.innerHTML = "";
+            text.style.color= "#0000CD";
+        }
+        else{
+          
+            form.classList.remove("valid");
+            form.classList.add("invalid");
+            text.innerHTML = "please enter vaild email address";
+            text.style.color= "#ff0000";
+        }
+
+        if(mail==""){
+           form.classList.remove("valid");
+            form.classList.remove("invalid");
+            text.innerHTML = "";
+            text.style.color= "#0000CD";
+        }
+
+    };      
+</script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+    import { getAuth,GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,signInWithPopup } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    import { getDatabase,set, ref, onValue } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyAGGM_npD2mFT08G1FHs2ZCmh0JLQ-NLYU",
+        authDomain: "treasure-hunt-9a3a1.firebaseapp.com",
+        projectId: "treasure-hunt-9a3a1",
+        storageBucket: "treasure-hunt-9a3a1.appspot.com",
+        messagingSenderId: "965170673320",
+        appId: "1:965170673320:web:b12554bf2e5400045b349d",
+        measurementId: "G-VGXTVGWNC6"
+    };
+
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// console.log(app);
+const auth = getAuth();
+const db = getDatabase();
+
+document.getElementById("login").addEventListener("click", function () {
+  var email = document.getElementById("email1").value;
+  var password = document.getElementById("pwd1").value;
+ 
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+
+      localStorage.setItem('user', JSON.stringify(user))
+      console.log(user);
+
+      alert(user.email + " Login successfully!!!");
+      // login();
+      window.location.href = "../HTML/homepage.html";
+      showSession()
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage);
+      alert(errorMessage);
+    });
+  
+});
+
+
+function showSession() {
+  console.log(localStorage.getItem("user"));
+
+}
+
+
+
+
+
+const provider = new GoogleAuthProvider(app);
+
+loginbtn.addEventListener('click', (e) => {
+
+  const auth = getAuth();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      alert(user + 'Login Successfully')
+      window.location.href = "../HTML/homepage.html";
+
+      // ...
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
+
+})
+</script>
+</html>
