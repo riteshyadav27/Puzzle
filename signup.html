@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="main">
+        
+        <section class="container">
+            <img src="images/signup.jpg" alt="Signup Image">
+            <div class="signup">
+                <h1 style="margin-bottom: 10px; margin-top: -5px; font-size: 30px;">Sign Up</h1>
+                <p style="color: rgb(95, 104, 104);margin-top: 2px; margin-bottom: 20px; font-size: 14px;">Please Enter Your Details</p>
+    
+                <label for="name" style="margin-bottom: 2px;">Name <b style="color: red;">*</b></label><br>
+                <input class="input" type="text" id="name" name="name" placeholder="Enter Your Name"><br><br>  
+            
+            <form id="form" action="#">
+                <label for="email" style="margin-bottom: 2px;">Email <b style="color: red;">*</b></label><br>
+                <input class="input" type="text" id="email" name="email" placeholder="Enter Your Email" onkeydown="validation()"><br><br>
+                <span id="text" ></span>
+            </form>
+                
+                <label for=" pwd" style="margin-bottom: 20px;">Password <b style="color: red;">*</b></label><br>
+                <input class="input" type="password" id="pwd" name="password" placeholder="Enter Password"><br><br>
+    
+                <label for=" pwd" style="margin-bottom: 20px;">Confirm Password <b style="color: red;">*</b></label><br>
+                <input class="input" type="password" id="cnf-pwd" name="password" placeholder="Confirm Password"><br><br>
+    
+                <br>
+                <button class="btn" id="signup" style="background: rgb(28, 26, 26); color: aliceblue; ">Sign Up</button><br>
+
+                <button class="btn" style="background-color: white; " id="loginbtn"> <img
+                    style="width: 20px; height: 20px; margin-right: 5px;" src="/Images/Google__G__Logo.svg.png"
+                    alt="google_logo"> <span>Sign Up with Google</span></button>
+    
+                <p style="font-size: medium; text-align: center; color: rgb(95, 104, 104); margin-top: 20px;">Already has an Account ? <a href="login.html"><b>Log In</b></a></p>
+    
+            </div>
+            
+        </section>
+    </div>
+</body>
+</html>
