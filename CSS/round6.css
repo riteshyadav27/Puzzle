@@ -1,0 +1,58 @@
+*{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+.title{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+#board{
+    height: 450px;
+    width: 450px;
+    background-color: aliceblue;
+    border: 7px solid rgb(59, 59, 59);
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+#board img{
+    width: 148px;
+    height: 148px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+h1{
+    margin-top: 40px;
+    text-align: center;
+}
+
+
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.hint{
+    flex: 2;
+    display: block;
+    padding: 40px 30px;
+
+}
+.puzzle{
+    flex: 4;
+}
+
+.hint img{
+    margin-left: 80px;
+    width: 70%;
+}
