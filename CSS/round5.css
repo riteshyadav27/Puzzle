@@ -1,0 +1,17 @@
+.container{
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.container img{
+    height: 520px;
+    width: 520px;
+    margin: auto;
+}
+
+.container2{
+    text-align: center;
+}
