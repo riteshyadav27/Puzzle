@@ -7,46 +7,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Round 2</title>
     <link rel="stylesheet" href="../CSS/round2.css">
+    <link rel="stylesheet" href="../CSS/common.css">
 </head>
 
 <body>
 
-    <div class="container">
 
-        <h1>Decrypt The Code And Get Reality Stone</h1>
-        <p id="que">If EARTH is written as FCUXM in a certain code. How is MOON written in that code? </p>
+    <section class="round2Sec">
 
+        <p class="objective">Objective : Collect the Reality Stone</p>
 
-        <div class="container2" id="container2">
-            <input type="text" id="text">
-            <p id="tryagain"></p>
-            <button class="button" role="button" id="btn" onclick="check()">Submit</button>
-            <a href="../HTML/index.html" style="text-decoration: none;"><button class="button" role="button" id="letsgo"  style="display: none;" >Lets Go</button></a>
+        <!-- Intearction of Characters will be in this div -->
+        <div class="round2-container ">
+
+            <!-- Container that will show thanos head -->
+            <div class="thanosCon character ">
+
+                <img height="60%" src="../Images/Round1/thanos_standing.png" alt="thanos">
+                <p> THANOS </p>
+
+            </div>
+
+            <!-- Container that will show loki and thors head -->
+            <div class="heroesCon " id="heroesCon">
+
+                <div class="collector character ">
+                    <img height="50%" id="collectorChar" src="../Images/Round2/collector_standing.png" alt="collector">
+                    <p> COLLECTOR </p>
+                </div>
+
+            </div>
+
         </div>
 
-    </div>
+        <!-- Intearction with user will be in this div -->
+        <div class="controlBox" id="controlBox">
+
+
+
+        </div>
+
+    </section>
+
 
 </body>
-<script>
-    function check() {
-        let ans = "NQRR";
-        let sub = document.getElementById("text").value;
-        if (ans === sub) {
-            document.getElementById("text").style.display = "none";
-            document.getElementById("que").innerHTML = "Woohoo You answer is Correct !!! Now Lets Go to Next round";
-            document.getElementById("btn").style.display = "none";
-            document.getElementById("letsgo").style.display = "block";
-        }
-        else {
-            // console.log("hey")
-            document.getElementById("tryagain").innerHTML = "Wrong Answer...Please Try Again";
-
-            setTimeout(function () {
-                document.getElementById("tryagain").innerHTML = '';
-            }, 3000);
-
-        }
-    }
-</script>
+<script src="../JS/round2.js"></script>
 
 </html>

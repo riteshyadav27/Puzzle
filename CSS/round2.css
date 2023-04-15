@@ -1,9 +1,29 @@
-body {
+.round2-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width:100%;;
+  height : 60vh;
+  transition: all 1s ease-in-out;
+}
 
-    background-size: cover;
-    box-sizing: border-box;
-    backdrop-filter: blur(2px);
-    color: rgb(0, 0, 0);
+.thanosCon{
+  display: inline-flex;
+  height: 100%;
+  width: 30%;
+}
+
+.heroesCon{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100%;
+  flex-direction: column;
+
 }
 
 .container {
