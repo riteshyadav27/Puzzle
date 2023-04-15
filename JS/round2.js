@@ -43,8 +43,7 @@ async function collector_dialouge(){
 
         const dialougeCon = document.getElementById('dialouge')
 
-        let txt = `Not so easy THANOS !! You need to break the Encrption of the password to get the REALITY Stone !
-    `
+        let txt = `Not so easy THANOS !! You need to break the Encrption of the password to get the REALITY Stone !`
         typeWriter(dialougeCon, txt, 0)
 
     }) 
