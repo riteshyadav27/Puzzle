@@ -65,3 +65,28 @@
     background: rgb(255, 255, 255);
     text-align: center;
 }
+
+.choiceBtnCon{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    gap : 30px;
+
+}
+
+.choiceBtnCon > button {
+
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 30px 70px;
+    border: none;
+    outline: none;
+    background:rgb(225 170 70);
+    color: white;
+
+
+}

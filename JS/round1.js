@@ -11,7 +11,7 @@ async function  main(){
 
   setTimeout( thanos_obj , 1000)
   setTimeout( ()=>{ scene1() } , 5000)
-  // setTimeout( ()=>{ thanos_choice() } , 10000)
+  setTimeout( ()=>{ thanos_choice() } , 10000)
 
   
 }
@@ -87,8 +87,47 @@ async function scene1(){
 
 }
 
-async 
+async function thanos_choice(){
 
+  //Create HTML BODY
+  let Choicebox = document.createElement('div')
+  Choicebox.className = " thanosChoiceCon "
+
+  //Dialouge 
+  let choiceTitle = document.createElement('p')
+  choiceTitle.id = "dialouge"
+
+  let txt = "You need to get the SPACE STONE from LOKI"
+
+  // Button Container
+  let choiceBtnCon = document.createElement('div')
+  choiceBtnCon.className = " choiceBtnCon "
+
+  let killLokiBtn = document.createElement('button')
+  killLokiBtn.id = "killLokiBtn"
+  killLokiBtn.textContent = "Kill Loki And Get the Stone"  
+  
+  
+  let askLokiBtn = document.createElement('button')
+  askLokiBtn.id = "askLokiBtn"
+  askLokiBtn.textContent = "Ask Loki Nicely to get the Stone"
+  
+  
+  //Appending All the Components
+  choiceBtnCon.append( killLokiBtn, askLokiBtn )
+  Choicebox.append(choiceTitle , choiceBtnCon )
+
+  controlBox.innerHTML = Choicebox.outerHTML
+  
+  // Create Event Listeners for Buttons
+  document.getElementById('killLokiBtn').onclick = ()=>{ console.log("Killed"); }
+  document.getElementById('askLokiBtn').onclick = ()=>{ console.log("Asked"); }
+
+  
+
+  typeWriter( document.getElementById('dialouge') , txt , 0 )
+
+}
 
 //TypeWriter Function
 function typeWriter( textCon, txt ,i ) {
