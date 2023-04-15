@@ -34,3 +34,20 @@ section{
     height: 100%;
 
 }
+
+.user_input{
+
+    outline: none;
+    width : 20%;
+    padding : 10px 30px;
+    font-size: 18px;
+    line-height: 35px;
+    border-radius: 8px;
+    font-weight: 700;
+    border : 2px solid rgb(225 170 70);
+    color : rgb(225 170 70);
+    background: rgb(255, 255, 255);
+    text-align: center;
+    
+
+}
