@@ -21,3 +21,16 @@ section{
     font-size : 18px;
     font-weight: 700;
 }
+
+.acquirePage{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 32px;
+    color: rgb(225 170 70);
+    height: 100%;
+
+}
