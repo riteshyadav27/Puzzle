@@ -10,8 +10,8 @@
 }
 
 #board{
-    height: 450px;
-    width: 450px;
+    height: 300px;
+    width: 300px;
     background-color: aliceblue;
     border: 7px solid rgb(59, 59, 59);
 
@@ -22,8 +22,8 @@
 
 
 #board img{
-    width: 148px;
-    height: 148px;
+    width: 98px;
+    height: 98px;
     border: 1px solid rgb(255, 255, 255);
 }
 
@@ -39,20 +39,24 @@ h1{
     display: flex;
     justify-content: center;
     align-content: center;
+    height: 60vh;
 
 }
 
 .hint{
     flex: 2;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 40px 30px;
 
 }
 .puzzle{
     flex: 4;
+    font-size: 10px;
 }
 
 .hint img{
-    margin-left: 80px;
-    width: 70%;
+    width:50%;
 }
