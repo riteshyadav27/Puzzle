@@ -123,7 +123,7 @@ async function thanos_choice() {
 
   // Create Event Listeners for Buttons
   document.getElementById('killLokiBtn').onclick = () => { killLokiAction() }
-  document.getElementById('askLokiBtn').onclick = () => { console.log("Asked"); }
+  document.getElementById('askLokiBtn').onclick = () => { lokiRiddle() }
 
   typeWriter(document.getElementById('dialouge'), txt, 0)
 
@@ -141,7 +141,41 @@ async function killLokiAction() {
 
   loki.style.animation = "2s ease-in-out loki_killed  "
 
-  setTimeout( ()=>stoneAcquired('../Images/Stones/space_stone.png', "Space") , 2000)
+  setTimeout(() => stoneAcquired('../Images/Stones/space_stone.png', "Space"), 2000)
+
+}
+
+//Loki gives a Riddle
+async function lokiRiddle() {
+
+  await dialouge("../Images/Round1/loki_smiling.png").then((res) => {
+
+    controlBox.innerHTML = res.outerHTML
+
+    console.log("Appended");
+
+    const dialougeCon = document.getElementById('dialouge')
+
+    const riddleBox = document.createElement('input')
+    riddleBox.className = "user_input"
+    riddleBox.id = "loki_riddle_ans"
+
+    let txt = ` I am LOKI ! GOD OF MISCHIEF I will give you if you solve this riddle first ! `
+    typeWriter(dialougeCon, txt, 0)
+
+    txt = ` Riddle : I am vast, but I have no boundaries. I am dark, but I am filled with light. I am full of wonders, but you cannot touch me. What am I?`
+    setTimeout(() => {
+
+      dialougeCon.innerHTML = ""
+      typeWriter(dialougeCon, txt, 0)
+      controlBox.append(riddleBox)
+
+      //Event Listeners
+      document.getElementById('loki_riddle_ans').onchange = (e) => { checkAns(e.target.value) }
+
+    }, 3000)
+
+  })
 
 }
 
@@ -165,7 +199,7 @@ async function stoneAcquired(stoneSrc, stone) {
   msg.textContent = `You have acquired ${stone} Stone`
 
   //Append All Elements
-  acquirePage.append(title , stoneImg , msg)
+  acquirePage.append(title, stoneImg, msg)
 
   document.body.innerHTML = acquirePage.outerHTML
 
@@ -187,3 +221,17 @@ function typeWriter(textCon, txt, i) {
 }
 
 
+//CheckAns Function
+
+async function checkAns( ans ){
+
+  ans = ans.trim()
+  ans = ans.toLowerCase()
+
+  if( ans === "space" ){
+     stoneAcquired('../Images/Stones/space_stone.png', "Space")
+  }
+  else alert( "Wrong Ans Try Again !" )
+
+
+}
