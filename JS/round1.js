@@ -84,6 +84,7 @@ async function scene1(){
   scene = document.getElementById('dialouge')
 
   typeWriter( scene , txt , 0 )
+  document.getElementById('heroesCon').style.width = "30%"
 
 }
 
@@ -120,12 +121,26 @@ async function thanos_choice(){
   controlBox.innerHTML = Choicebox.outerHTML
   
   // Create Event Listeners for Buttons
-  document.getElementById('killLokiBtn').onclick = ()=>{ console.log("Killed"); }
+  document.getElementById('killLokiBtn').onclick = ()=>{ killLokiAction() }
   document.getElementById('askLokiBtn').onclick = ()=>{ console.log("Asked"); }
 
-  
-
   typeWriter( document.getElementById('dialouge') , txt , 0 )
+
+}
+
+//Loki hets Killed
+
+async function killLokiAction(){
+
+  let loki = document.getElementById('lokiChar')
+  loki.src = '../Images/Round1/dead_loki.png'
+
+  let thor = document.getElementById('thorChar')
+  thor.src = '../Images/Round1/thor_screaming.png'
+  thor.style.height = "40%"
+
+  loki.style.animation = "2s ease-in-out loki_killed  "
+
 
 }
 
