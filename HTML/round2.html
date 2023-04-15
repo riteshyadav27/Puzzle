@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round 2</title>
+    <link rel="stylesheet" href="../CSS/round2.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Decrypt The Code And Get Reality Stone</h1>
+        <p id="que">If EARTH is written as FCUXM in a certain code. How is MOON written in that code? </p>
+
+
+        <div class="container2" id="container2">
+            <input type="text" id="text">
+            <p id="tryagain"></p>
+            <button class="button" role="button" id="btn" onclick="check()">Submit</button>
+            <a href="../HTML/index.html" style="text-decoration: none;"><button class="button" role="button" id="letsgo"  style="display: none;" >Lets Go</button></a>
+        </div>
+
+    </div>
+
+</body>
+<script>
+    function check() {
+        let ans = "NQRR";
+        let sub = document.getElementById("text").value;
+        if (ans === sub) {
+            document.getElementById("text").style.display = "none";
+            document.getElementById("que").innerHTML = "Woohoo You answer is Correct !!! Now Lets Go to Next round";
+            document.getElementById("btn").style.display = "none";
+            document.getElementById("letsgo").style.display = "block";
+        }
+        else {
+            // console.log("hey")
+            document.getElementById("tryagain").innerHTML = "Wrong Answer...Please Try Again";
+
+            setTimeout(function () {
+                document.getElementById("tryagain").innerHTML = '';
+            }, 3000);
+
+        }
+    }
+</script>
+
+</html>

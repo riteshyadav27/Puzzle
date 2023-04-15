@@ -6,7 +6,7 @@ Anyone who posses this INFINITY STONES can do whatever they want.\n
 `
 
 const storyCon = document.getElementById("startStory")
-const speed = 1
+const speed = 100
 let i=0
 
 
