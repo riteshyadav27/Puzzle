@@ -1,26 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Round 5</title>
     <link rel="stylesheet" href="../CSS/round5.css">
+    <link rel="stylesheet" href="../CSS/common.css">
 </head>
+
 <body>
-    <div class="container">
-        <img src="../Images/round 5/image.png" alt="image" usemap="#room" width="512" height="512">
 
-        <map name="room">
-            <area shape="rect" coords="351,288,361,300" href="#" alt="nothing">
-            <area shape="rect" coords="456,174,470,184" href="#" alt="nothing">
-            <area shape="rect" coords="396,205,405,210" href="#" alt="nothing">
-        </map>
+    <p class="objective">Objective : Collect the Space Stone</p>
+
+    <div class="round5-container">
+
+        <!-- Container that will show thanos head -->
+        <div class="thanosCon character ">
+
+            <img height="60%" src="../Images/Round1/thanos_standing.png" alt="thanos">
+            <p> THANOS </p>
+
+        </div>
+
+        <div class="mindImgCon">
+
+            <img id="mind-img" src="../Images/round5/mind-img.jpg" alt="image" usemap="#room" height="368px"  >
+
+            <map name="room" id="room-img" >
+                <area id="mind-stone" shape="circle" coords="515,264,10" href="#" alt="nothing"  >
+                <area shape="circle" coords="671,97,10" href="#" alt="nothing">
+            </map>
+        </div>
+
     </div>
 
-    <div class="container2">
-        <p>Hey To Acquire mind Stone You have to Find MIND stone in an image.If you find it then Click on the Image</p>
-        
+    <!-- Intearction with user will be in this div -->
+    <div class="controlBox" id="controlBox">
+
+
+
     </div>
+
+    <script src="../JS/round5.js"></script>
+
 </body>
+
 </html>
