@@ -203,6 +203,7 @@ async function stoneAcquired(stoneSrc, stone) {
 
   document.body.innerHTML = acquirePage.outerHTML
 
+  
 }
 
 //TypeWriter Function
@@ -223,15 +224,15 @@ function typeWriter(textCon, txt, i) {
 
 //CheckAns Function
 
-async function checkAns( ans ){
+async function checkAns(ans) {
 
   ans = ans.trim()
   ans = ans.toLowerCase()
 
-  if( ans === "space" ){
-     stoneAcquired('../Images/Stones/space_stone.png', "Space")
+  if (ans === "space") {
+    stoneAcquired('../Images/Stones/space_stone.png', "Space")
   }
-  else alert( "Wrong Ans Try Again !" )
+  else alert("Wrong Ans Try Again !")
 
 
 }

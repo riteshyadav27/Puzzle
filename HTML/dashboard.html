@@ -76,7 +76,8 @@
                                 <th>Sno</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Password</th>
+                                <th>Round</th>
+                                <th>Time</th>
                             </thead>
                             <tbody id="tbody1"></tbody>
                         </table>
@@ -120,23 +121,26 @@ const db = getDatabase();
         var stdNo = 0;
         var tbody= document.getElementById('tbody1');
 
-        function AddItemToTable(name,email,pwd){
+        function AddItemToTable(name,email,pwd,round,time){
             let trow = document.createElement("tr");
             let td1 = document.createElement("td");
             let td2 = document.createElement("td");
             let td3 = document.createElement("td");
             let td4 = document.createElement("td");
+            let td5 = document.createElement("td");
 
             td1.innerHTML= ++stdNo;
             td2.innerHTML= name;
             td3.innerHTML= email;
-            td4.innerHTML= pwd;
+            td4.innerHTML= round;
+            td5.innerHTML= time;
 
 
             trow.appendChild(td1);
             trow.appendChild(td2);
             trow.appendChild(td3);
             trow.appendChild(td4);
+            trow.appendChild(td5);
 
             tbody.append(trow);
            
@@ -147,7 +151,7 @@ const db = getDatabase();
             stdNo=0;
             tbody.innerHTML="";
             TheUsers.forEach(element => {
-                AddItemToTable(element.name,element.email,element.pwd);
+                AddItemToTable(element.name,element.email,element.round,element.round,element.time);
             });
         }
 
