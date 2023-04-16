@@ -1,7 +1,7 @@
 // declarations
 
 const controlBox = document.getElementById('controlBox')
-const speed = 10
+const speed = 75
 
 
 main() //Main function starts
@@ -9,8 +9,8 @@ main() //Main function starts
 async function main() {
 
     setTimeout(thanos_obj, 1000)
-    setTimeout(collector_dialouge, 3000)
-    setTimeout(display_encyption, 7000)
+    setTimeout(collector_dialouge, 8000)
+    setTimeout(display_encyption, 16000)
 
 
 }
@@ -43,7 +43,7 @@ async function collector_dialouge(){
 
         const dialougeCon = document.getElementById('dialouge')
 
-        let txt = `Not so easy THANOS !! You need to break the Encrption of the password to get the REALITY Stone !`
+        let txt = `Not so easy THANOS !! You need to break the Encryption of the password to get the REALITY Stone !`
         typeWriter(dialougeCon, txt, 0)
 
     }) 
@@ -136,7 +136,8 @@ async function checkAns( ans ){
     ans = ans.toLowerCase()
   
     if( ans === "qdzkhsx" ){
-       stoneAcquired('../Images/Stones/reality_stone.png', "Reality")
+       stoneAcquired('../Images/Stones/reality_stone.png', "REALI<span class='purple' >T</span>Y ")
+       setTimeout( ()=> window.location.href = '/HTML/round3.html' , 2000 )
     }
     else alert( "Wrong Ans Try Again !" )
   
@@ -160,7 +161,7 @@ async function stoneAcquired(stoneSrc, stone) {
     title.textContent = `CONGRATULATIONS !`
   
     let msg = document.createElement('p')
-    msg.textContent = `You have acquired ${stone} Stone`
+    msg.innerHTML = `You have acquired ${stone} Stone`
   
     //Append All Elements
     acquirePage.append(title, stoneImg, msg)

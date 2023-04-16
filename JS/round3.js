@@ -2,7 +2,7 @@
 
 const controlBox = document.getElementById('controlBox')
 
-const speed = 10
+const speed = 75
 
 
 main() //Main function starts
@@ -10,8 +10,8 @@ main() //Main function starts
 async function main() {
 
     setTimeout(thanos_obj, 1000)
-    setTimeout(gamora_dialouge, 5000)
-    setTimeout(appendInput, 7000)
+    setTimeout(gamora_dialouge, 12000)
+    setTimeout(appendInput, 22000)
 
 
 }
@@ -28,7 +28,7 @@ async function thanos_obj() {
 
         const dialougeCon = document.getElementById('dialouge')
 
-        let txt = `Guardians of the Galaxy !! We meet Again !!! Hand over the POWER Stone My Daughter I Will spare the lives of your puny friends !!`
+        let txt = `Guardians of the Galaxy !! We meet again !!! Hand over the POWER Stone, My Daughter. I Will spare the lives of your puny friends !!`
         typeWriter(dialougeCon, txt, 0)
 
 
@@ -45,7 +45,7 @@ async function gamora_dialouge() {
 
         const dialougeCon = document.getElementById('dialouge')
 
-        let txt = `Don't call me daughter you are no longer my DAD !! Anyway you cannot get the stone without the last number in the sequence !!!`
+        let txt = `Don't call me daughter. You are no longer my DAD !! Anyway, you cannot get the stone without the last number in the sequence !!!`
         typeWriter(dialougeCon, txt, 0)
 
 
@@ -63,7 +63,7 @@ async function thanos_takes_gamora() {
 
         const dialougeCon = document.getElementById('dialouge')
 
-        let txt = `I get the POWER Stone !! My Daughter you are coming with me !! hahahaha !!`
+        let txt = `I got the POWER Stone !! My Daughter, you are coming with me !! hahahaha !!`
         typeWriter(dialougeCon, txt, 0)
 
 
@@ -139,7 +139,8 @@ async function checkAns(ans) {
 
     if (ans === "4") {
         thanos_takes_gamora()
-        setTimeout( ()=>stoneAcquired('../Images/Stones/power_stone.png', "Power") , 3000 )
+        setTimeout( ()=>stoneAcquired('../Images/Stones/power_stone.png', "POWER") , 7000 )
+        setTimeout( ()=>window.location.href = '/HTML/round4.html' , 9000 )
         
     }
     else alert("Wrong Ans Try Again !")

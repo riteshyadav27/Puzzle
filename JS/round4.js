@@ -6,7 +6,7 @@ var blanktile;
 
 var turns = 0;
 
-let speed = 10
+let speed = 75
 
 var sol = ["1","2","3","4","5","6","7","8","9"];
 
@@ -110,7 +110,8 @@ window.onload = function () {
         console.log(sol);
         
         if( JSON.stringify(currentSeq) === JSON.stringify(sol) ) {
-            stoneAcquired('../Images/Stones/time_stone.png', "Time")
+            stoneAcquired('../Images/Stones/time_stone.png', "<span class='purple'>TI</span>ME")
+            setTimeout(()=>{ window.location.href = '/HTML/round5.html' } , 2000)
         }
         
 
@@ -141,7 +142,7 @@ async function drStange_obj() {
   
       const dialougeCon = document.getElementById('dialouge')
   
-      let txt = ` Welcome Thanos to my Mirror Dimension Spell ! I have shattered the pieces of mirror you can only get out if you can rearrange the mirror again !! `
+      let txt = ` Welcome Thanos and Gamora to my Mirror Dimension Spell ! I have shattered the pieces of mirror. You can only get out if you can rearrange the mirror again !! `
       typeWriter(dialougeCon, txt, 0)
   
     })
@@ -196,7 +197,7 @@ async function stoneAcquired(stoneSrc, stone) {
     title.textContent = `CONGRATULATIONS !`
   
     let msg = document.createElement('p')
-    msg.textContent = `You have acquired ${stone} Stone`
+    msg.innerHTML = `You have acquired ${stone} Stone`
   
     //Append All Elements
     acquirePage.append(title, stoneImg, msg)

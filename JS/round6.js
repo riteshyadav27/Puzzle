@@ -1,26 +1,26 @@
 // declarations
 
 const controlBox = document.getElementById('controlBox')
-const speed = 10
+const speed = 75
 
 
 main() //Main function starts
 
 async function main() {
 
-    let txt = `Welcome Son of A'Lars and Daughter of Thanos !! I observe that you have colllect all the remaining stones !`
+    let txt = `Welcome Son of A'Lars and Daughter of Thanos !! I observe that you have collected all the remaining stones !`
     setTimeout( ()=> red_skull_dialouge(txt), 1000)
 
-    txt2 = `But this stone is special you need to give up your most precious thing. Thing that you love most !!`
-    setTimeout( ()=> red_skull_dialouge(txt2), 3000)
+    txt2 = `But this stone is special. You need to give up your most precious thing. The thing that you love most !!`
+    setTimeout( ()=> red_skull_dialouge(txt2), 12000)
 
-    txt3 = ` look THANOS it is real close to you !! You only get ONE Chance`
-    setTimeout( ()=> red_skull_dialouge(txt3), 5000)
+    txt3 = ` Look THANOS Look, it is really close to you !! You only get ONE chance`
+    setTimeout( ()=> red_skull_dialouge(txt3), 22000)
 
-    setTimeout( ()=> gamora_dialouge(` HA  ! He is a monster He never loved someone ! No Point in Crying now DAD !`), 1000)
+    // setTimeout( ()=> gamora_dialouge(` HA  ! He is a monster He never loved someone ! No Point in Crying now DAD !`), 1000)
     
-    txt = `The Tears are not for him ! these are for you !!`
-    setTimeout( ()=> red_skull_dialouge(txt3), 5000)
+    // txt = `The Tears are not for him ! these are for you !!`
+    // setTimeout( ()=> red_skull_dialouge(txt3), 5000)
     
 
 
@@ -179,7 +179,7 @@ document.getElementById('gamora').onclick = ()=>{
 document.getElementById('gaunlet').onclick = ()=>{
 
 
-    stoneAcquired( '../Images/Stones/soul_stone.png' , "Soul" )
+    stoneAcquired( '../Images/Stones/soul_stone.png' , "SOUL" )
 
     setTimeout( ()=>{
         document.body.innerHTML = "<img id='snaps' src='../Images/round6/thanos-infinity.gif'>"

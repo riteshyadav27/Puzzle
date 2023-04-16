@@ -1,7 +1,7 @@
 // declarations
 
 const controlBox = document.getElementById('controlBox')
-const speed = 10
+const speed = 75
 
 
 main() //Main function starts
@@ -10,8 +10,8 @@ main() //Main function starts
 async function main() {
 
   setTimeout(thanos_obj, 1000)
-  setTimeout(() => { scene1() }, 5000)
-  setTimeout(() => { thanos_choice() }, 7000)
+  setTimeout(() => { scene1() }, 20000)
+  setTimeout(() => { thanos_choice() }, 25000)
 
 
 }
@@ -28,8 +28,7 @@ async function thanos_obj() {
 
     const dialougeCon = document.getElementById('dialouge')
 
-    let txt = ` I am Thanos ! My Planet got destroyed beacuse of depreciating resources ! I am going to bring balance by Killing the Half Universe So that Peace can be RESTOTRED ! 
-  But For this I need 6 INFINITY STONES !
+    let txt = ` I am Thanos ! My Planet has been destroyed because of depreciating resources ! I am going to bring balance by Killing the Half Universe so that Peace can be RESTORTED !   But for this I need 6 INFINITY STONES !
   `
     typeWriter(dialougeCon, txt, 0)
 
@@ -173,7 +172,7 @@ async function lokiRiddle() {
       //Event Listeners
       document.getElementById('loki_riddle_ans').onchange = (e) => { checkAns(e.target.value) }
 
-    }, 3000)
+    }, 8000)
 
   })
 
@@ -196,7 +195,7 @@ async function stoneAcquired(stoneSrc, stone) {
   title.textContent = `CONGRATULATIONS !`
 
   let msg = document.createElement('p')
-  msg.textContent = `You have acquired ${stone} Stone`
+  msg.innerHTML = `You have acquired ${stone} Stone`
 
   //Append All Elements
   acquirePage.append(title, stoneImg, msg)
@@ -230,7 +229,8 @@ async function checkAns(ans) {
   ans = ans.toLowerCase()
 
   if (ans === "space") {
-    stoneAcquired('../Images/Stones/space_stone.png', "Space")
+    stoneAcquired('../Images/Stones/space_stone.png', "<span>SP<span class='purple' >A</span>CE</span>")
+    setTimeout( ()=>{ window.location.href = '/HTML/round2.html' }  , 2000 )
   }
   else alert("Wrong Ans Try Again !")
 

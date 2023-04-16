@@ -1,12 +1,10 @@
 
 const txt = 
-`During Big Bang the Universe Exploded and a whole new journey began.\n
-With the creation of Universe 6 stones also borned that hold the power to change the UNIVERSE.\n
-Anyone who posses this INFINITY STONES can do whatever they want.\n 
+`During the Big Bang, the Universe Exploded and a whole new journey began.With the creation of the Universe, 6 stones were also born that hold the power to change the UNIVERSE.Anyone who possesses this INFINITY STONES can do whatever they want. 
 `
 
 const storyCon = document.getElementById("startStory")
-const speed = 100
+const speed = 75
 let i=0
 
 

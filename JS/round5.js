@@ -1,4 +1,4 @@
-speed = 10
+speed = 75
 
 
 // Running Main Function
@@ -7,7 +7,7 @@ main()
 async function main() {
 
     setTimeout(thanos_obj, 1000)
-    setTimeout(vision_obj, 3000)
+    setTimeout(vision_obj, 7000)
 
 }
 
@@ -23,7 +23,7 @@ async function thanos_obj() {
 
         const dialougeCon = document.getElementById('dialouge')
 
-        let txt = ` Vision !! Get Ready I am here to get the MIND Stone !!
+        let txt = ` Vision !! Get Ready. I am here to get the MIND Stone !!
     `
         typeWriter(dialougeCon, txt, 0)
 
@@ -41,7 +41,7 @@ async function vision_obj() {
 
         const dialougeCon = document.getElementById('dialouge')
 
-        let txt = `I have hide the stone in this room you cannot find it!!
+        let txt = `I have hidden the stone in this room. You cannot find it!!
     `
         typeWriter(dialougeCon, txt, 0)
 
@@ -112,7 +112,7 @@ async function stoneAcquired(stoneSrc, stone) {
     title.textContent = `CONGRATULATIONS !`
 
     let msg = document.createElement('p')
-    msg.textContent = `You have acquired ${stone} Stone`
+    msg.innerHTML = `You have acquired ${stone} Stone`
 
     //Append All Elements
     acquirePage.append(title, stoneImg, msg)
@@ -123,5 +123,6 @@ async function stoneAcquired(stoneSrc, stone) {
 
 
 document.getElementById('mind-stone').onclick = () => {
-    stoneAcquired('../Images/Stones/mind_stone.png', 'MIND')
+    stoneAcquired('../Images/Stones/mind_stone.png', "MI<span class='purple'>N</span>D")
+    setTimeout(()=> window.location.href = '/HTML/location.html' , 2000)
 }
