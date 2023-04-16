@@ -58,6 +58,7 @@
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
     import { getAuth, GoogleAuthProvider,signInWithPopup,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
     import { getDatabase,set, ref, onValue } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -85,17 +86,22 @@
         var email = document.getElementById("email").value;
         var pwd = document.getElementById("pwd").value;
         var cnfpwd = document.getElementById("cnf-pwd").value;
-
+        var round=0;
+        var time=0;
 
         if (name === "" || email === "" || pwd === "" || cnfpwd === "") {
             alert("Please Fill all necesssary Details");
         }
         else {
             if (pwd == cnfpwd) {
+                
+
                 set(ref(db, 'Users/' + name ), {
                     name,
                     email,
                     pwd,
+                    round,
+                    time,
 
                 }).then(() => {
                     alert("Sign Up Successfull !!");
@@ -105,7 +111,8 @@
                 // For new registration
                 createUserWithEmailAndPassword(auth, email, pwd)
                     .then((userCredential) => {
-
+                        
+                       
                         window.location.href = "../HTML/login.html";
 
                     })
