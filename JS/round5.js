@@ -1,4 +1,30 @@
-speed = 75
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+//TODO: set correct import
+import { getDatabase, set, ref, onValue, update, get, child } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAGGM_npD2mFT08G1FHs2ZCmh0JLQ-NLYU",
+    authDomain: "treasure-hunt-9a3a1.firebaseapp.com",
+    projectId: "treasure-hunt-9a3a1",
+    storageBucket: "treasure-hunt-9a3a1.appspot.com",
+    messagingSenderId: "965170673320",
+    appId: "1:965170673320:web:b12554bf2e5400045b349d",
+    measurementId: "G-VGXTVGWNC6"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getDatabase();
+
+
+let speed = 75
+
+let starttime;
+let endtime;
+let time = 0;
 
 
 // Running Main Function
@@ -14,6 +40,8 @@ async function main() {
 
 // Show Thanos Objective
 async function thanos_obj() {
+    starttime=new Date().getTime();
+    console.log(starttime);
 
     await dialouge("../Images/thanos.png").then((res) => {
 
@@ -123,6 +151,17 @@ async function stoneAcquired(stoneSrc, stone) {
 
 
 document.getElementById('mind-stone').onclick = () => {
+    endtime = new Date().getTime();
+    console.log(endtime);
+    
+    time += (endtime - starttime) / 1000;
+    console.log(time);
+
+    update(ref(db, 'Users/' + localStorage.getItem('username')), {
+        time5: time,
+        round: 5,
+    })
+
     stoneAcquired('../Images/Stones/mind_stone.png', "MI<span class='purple'>N</span>D")
-    setTimeout(()=> window.location.href = '/HTML/location.html' , 2000)
+    setTimeout(() => window.location.href = '/HTML/location.html', 2000)
 }

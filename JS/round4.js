@@ -1,8 +1,35 @@
+
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+//TODO: set correct import
+import { getDatabase, set, ref, onValue ,update,get,child} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAGGM_npD2mFT08G1FHs2ZCmh0JLQ-NLYU",
+  authDomain: "treasure-hunt-9a3a1.firebaseapp.com",
+  projectId: "treasure-hunt-9a3a1",
+  storageBucket: "treasure-hunt-9a3a1.appspot.com",
+  messagingSenderId: "965170673320",
+  appId: "1:965170673320:web:b12554bf2e5400045b349d",
+  measurementId: "G-VGXTVGWNC6"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getDatabase();
+
+let starttime;
+let endtime;
+let time = 0;
+// declarations
 var rows = 3;
 var columns = 3;
 
 var currTile;
 var blanktile;
+var otherTile;
 
 var turns = 0;
 
@@ -10,17 +37,18 @@ let speed = 75
 
 var sol = ["1","2","3","4","5","6","7","8","9"];
 
-var imgOrder = ["/Images/round4/1",
-    "/Images/round4/2",
-    "/Images/round4/3",
-    "/Images/round4/4",
+var imgOrder = ["/Images/round4/2",
     "/Images/round4/5",
-    "/Images/round4/6",
+    "/Images/round4/9",
     "/Images/round4/7",
+    "/Images/round4/1",
+    "/Images/round4/6",
+    "/Images/round4/4",
     "/Images/round4/8",
-    "/Images/round4/9"];
+    "/Images/round4/3"];
 
 window.onload = function () {
+    starttime=new Date().getTime();
 
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
@@ -110,6 +138,14 @@ window.onload = function () {
         console.log(sol);
         
         if( JSON.stringify(currentSeq) === JSON.stringify(sol) ) {
+            endtime = new Date().getTime();
+
+            time += (endtime - starttime) / 1000;
+
+            update(ref(db, 'Users/' + localStorage.getItem('username')), {
+                time4: time,
+                round: 4,
+            })
             stoneAcquired('../Images/Stones/time_stone.png', "<span class='purple'>TI</span>ME")
             setTimeout(()=>{ window.location.href = '/HTML/round5.html' } , 2000)
         }

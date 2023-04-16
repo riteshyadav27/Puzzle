@@ -1,7 +1,33 @@
+
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+//TODO: set correct import
+import { getDatabase, set, ref, onValue ,update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAGGM_npD2mFT08G1FHs2ZCmh0JLQ-NLYU",
+  authDomain: "treasure-hunt-9a3a1.firebaseapp.com",
+  projectId: "treasure-hunt-9a3a1",
+  storageBucket: "treasure-hunt-9a3a1.appspot.com",
+  messagingSenderId: "965170673320",
+  appId: "1:965170673320:web:b12554bf2e5400045b349d",
+  measurementId: "G-VGXTVGWNC6"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getDatabase();
+
+
+
 // declarations
 
 const controlBox = document.getElementById('controlBox')
 const speed = 75
+let starttime;
+let endtime;
 
 
 main() //Main function starts
@@ -90,6 +116,7 @@ async function scene1() {
 //Choice for thanos 
 async function thanos_choice() {
 
+  
   //Create HTML BODY
   let Choicebox = document.createElement('div')
   Choicebox.className = " thanosChoiceCon "
@@ -142,10 +169,13 @@ async function killLokiAction() {
 
   setTimeout(() => stoneAcquired('../Images/Stones/space_stone.png', "Space"), 2000)
 
+  setTimeout( ()=>{ window.location.href = '/HTML/round2.html' }  , 1000 )
+
 }
 
 //Loki gives a Riddle
 async function lokiRiddle() {
+  starttime=new Date().getTime();
 
   await dialouge("../Images/Round1/loki_smiling.png").then((res) => {
 
@@ -229,6 +259,19 @@ async function checkAns(ans) {
   ans = ans.toLowerCase()
 
   if (ans === "space") {
+    endtime=new Date().getTime();
+    let time = (endtime-starttime)/1000;
+
+    console.log(time);
+    console.log(localStorage.getItem('username'));
+
+    update(ref(db, 'Users/'+ localStorage.getItem('username')), {
+      time1 : time,
+      round : 1,
+    })
+
+
+
     stoneAcquired('../Images/Stones/space_stone.png', "<span>SP<span class='purple' >A</span>CE</span>")
     setTimeout( ()=>{ window.location.href = '/HTML/round2.html' }  , 2000 )
   }
@@ -236,3 +279,6 @@ async function checkAns(ans) {
 
 
 }
+
+
+

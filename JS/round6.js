@@ -1,7 +1,32 @@
+
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+//TODO: set correct import
+import { getDatabase, set, ref, onValue ,update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAGGM_npD2mFT08G1FHs2ZCmh0JLQ-NLYU",
+  authDomain: "treasure-hunt-9a3a1.firebaseapp.com",
+  projectId: "treasure-hunt-9a3a1",
+  storageBucket: "treasure-hunt-9a3a1.appspot.com",
+  messagingSenderId: "965170673320",
+  appId: "1:965170673320:web:b12554bf2e5400045b349d",
+  measurementId: "G-VGXTVGWNC6"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getDatabase();
+
 // declarations
 
 const controlBox = document.getElementById('controlBox')
 const speed = 75
+let starttime;
+let endtime;
+let time=0;
 
 
 main() //Main function starts
@@ -11,11 +36,13 @@ async function main() {
     let txt = `Welcome Son of A'Lars and Daughter of Thanos !! I observe that you have collected all the remaining stones !`
     setTimeout( ()=> red_skull_dialouge(txt), 1000)
 
-    txt2 = `But this stone is special. You need to give up your most precious thing. The thing that you love most !!`
+    let txt2 = `But this stone is special. You need to give up your most precious thing. The thing that you love most !!`
     setTimeout( ()=> red_skull_dialouge(txt2), 12000)
 
-    txt3 = ` Look THANOS Look, it is really close to you !! You only get ONE chance`
+    let txt3 = ` Look THANOS Look, it is really close to you !! You only get ONE chance`
     setTimeout( ()=> red_skull_dialouge(txt3), 22000)
+
+    starttime = new Date().getTime();
 
     // setTimeout( ()=> gamora_dialouge(` HA  ! He is a monster He never loved someone ! No Point in Crying now DAD !`), 1000)
     
@@ -177,8 +204,16 @@ document.getElementById('gamora').onclick = ()=>{
 }
 
 document.getElementById('gaunlet').onclick = ()=>{
+    endtime = new Date().getTime();
+    
+     time += (endtime - starttime) / 1000;
+    console.log(time);
 
-
+    update(ref(db, 'Users/' + localStorage.getItem('username')), {
+        complete:true,
+        time6: time,
+        round: 6,
+    })
     stoneAcquired( '../Images/Stones/soul_stone.png' , "SOUL" )
 
     setTimeout( ()=>{
