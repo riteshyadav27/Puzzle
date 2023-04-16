@@ -88,6 +88,7 @@
         var cnfpwd = document.getElementById("cnf-pwd").value;
         var round=0;
         var time=0;
+        var attempt=0;
 
         if (name === "" || email === "" || pwd === "" || cnfpwd === "") {
             alert("Please Fill all necesssary Details");
@@ -102,6 +103,7 @@
                     pwd,
                     round,
                     time,
+                    attempt,
 
                 }).then(() => {
                     alert("Sign Up Successfull !!");
